@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#root {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.App {
+    width: 800px;
+}
+
+.navbar {
+    height: 50px;
+    width: 100vw;
+    align-items: center;
+    display: flex;
+    padding: 0 15px;
+    background-color: antiquewhite;
+    justify-content: space-between;
+}
+
+.linkStyle {
+    text-decoration: none;
+    color: green
+}
+
+.flower {
+    display: flex;
+    padding: 15px;
+    border: 2px solid green;
+    margin-top: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flower-enter {
+    transform: translateX(-350px);
+}
+
+.flower-enter-active {
+    transform: translateX(0px);
+    transition: all 500ms ease-in;
+}
+
+.flower-exit {
+    opacity: 1;
+}
+
+.flower-exit-active {
+    transform: translateX(-350px);
+    transition: all 500ms ease-in;
+}
