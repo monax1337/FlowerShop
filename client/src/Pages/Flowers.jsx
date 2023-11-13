@@ -31,6 +31,14 @@ const Flowers = () => {
     fetchFlowers();
   }, []);
 
+  useEffect(() => {
+    const getFlowers = async () => {
+      const fetchedFlowers = await FlowerService.getAllFlowers(selectedLanguage);
+      setFlowers(fetchedFlowers);
+    };
+    getFlowers();
+  }, [fetchFlowers])
+
   const addToCart = (flower) => {
     const existingFlower = cart.find((item) => item.id === flower.id);
 

@@ -35,8 +35,9 @@ const writeFlowersToFile = (flowers, language) => {
 };
 
 app.post('/flowers', (req, res) => {
-  let flowers = readFlowersFromFile();
+  
   const { newFlower, language } = req.body;
+  let flowers = readFlowersFromFile(language);
   flowers.push(newFlower);
   writeFlowersToFile(flowers, language);
   res.send('Flower added successfully.');
@@ -44,7 +45,7 @@ app.post('/flowers', (req, res) => {
 
 app.put('/flowers', (req, res) => {
   const { oldFlower, newFlower, language } = req.body;
-  const flowers = readFlowersFromFile();
+  const flowers = readFlowersFromFile(language);
 
   const updatedFlowers = flowers.map(flower => {
     if (flower.id === oldFlower.id) {
@@ -59,7 +60,7 @@ app.put('/flowers', (req, res) => {
 
 app.delete('/flowers', (req, res) => {
   const { flowerId, language } = req.body;
-  const flowers = readFlowersFromFile();
+  const flowers = readFlowersFromFile(language);
 
   const updatedFlowers = flowers.filter(flower => flower.id !== flowerId);
 
