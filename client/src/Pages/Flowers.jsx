@@ -2,16 +2,21 @@ import React, { useContext, useEffect, useState } from "react";
 import FlowerList from "../Componets/FlowerList";
 import { useFetching } from "../hooks/useFetching";
 import MyLoader from "../Componets/UI/loaders/MyLoader";
-import { CartContext, LocaleContext } from "../Contexts";
+import { LocaleContext } from "../Contexts";
 import FlowerFilter from "../Componets/FlowerFilter";
 import { useFlowers } from "../hooks/useFlowers";
 import FlowerService from "../API/FlowerService";
 import { useIntl } from "react-intl";
+import {
+  englishNameDictionary,
+  englishColorDictionary,
+  russianNameDictionary,
+  russianColorDictionary,
+} from "../Dictionaries/MyDictionary";
 
 const Flowers = () => {
   const intl = useIntl();
   const [flowers, setFlowers] = useState([]);
-  const { cart, setCart } = useContext(CartContext);
   const [filter, setFilter] = useState({ sort: '', query: '' });
   const sortedAndSearchedFlowers = useFlowers(flowers, filter.sort, filter.query);
   const { locale, setLocale } = useContext(LocaleContext);
@@ -20,6 +25,22 @@ const Flowers = () => {
 
   const [fetchFlowers, isFlowersLoading, flowerError] = useFetching(async () => {
   })
+
+  const getEnglishName = (name) => {
+    return englishNameDictionary[name];
+  };
+
+  const getEnglishColor = (color) => {
+    return englishColorDictionary[color];
+  };
+
+  const getRussianName = (name) => {
+    return russianNameDictionary[name];
+  };
+
+  const getRussianColor = (color) => {
+    return russianColorDictionary[color];
+  };
 
   useEffect(() => {
     const getFlowers = async () => {
@@ -31,6 +52,7 @@ const Flowers = () => {
     fetchFlowers();
   }, []);
 
+
   useEffect(() => {
     const getFlowers = async () => {
       const fetchedFlowers = await FlowerService.getAllFlowers(selectedLanguage);
@@ -39,19 +61,54 @@ const Flowers = () => {
     getFlowers();
   }, [fetchFlowers])
 
-  const addToCart = (flower) => {
-    const existingFlower = cart.find((item) => item.id === flower.id);
+  const addToCart = async (flower) => {
+    try {
+      let cartFlowerRu, cartFlowerEn;
 
-    if (existingFlower) {
-      const updatedCart = cart.map((item) =>
-        item.id === flower.id ? { ...item, quantity: item.quantity + 1 } : item
-      );
-      setCart(updatedCart);
-    } else {
-      const updatedCart = [...cart, { ...flower, quantity: 1 }];
-      setCart(updatedCart);
+      const flowersRu = await FlowerService.getAllCartFlowers('russian');
+      const flowersEn = await FlowerService.getAllCartFlowers('english');
+
+      console.log('Flowers Ru:', flowersRu);
+      console.log('Flowers En:', flowersEn);
+
+      const existingFlowerInCartRuIndex = flowersRu.findIndex((item) => item.name === selectedLanguage === 'russian' ? flower.name : getRussianName(flower.name) && item.color === selectedLanguage === 'russian' ? flower.color : getRussianColor(flower.color));
+      const existingFlowerInCartEnIndex = flowersEn.findIndex((item) => item.name === selectedLanguage === 'english' ? flower.name : getEnglishName(flower.name) && item.color === selectedLanguage === 'english' ? flower.color : getEnglishColor(flower.color));
+
+      console.log(existingFlowerInCartRuIndex);
+      console.log(existingFlowerInCartEnIndex);
+
+      if (existingFlowerInCartRuIndex !== -1) {
+        flowersRu[existingFlowerInCartRuIndex].quantity += 1;
+        await FlowerService.updateCartFlowerQuantity(flowersRu[existingFlowerInCartRuIndex], flowersRu[existingFlowerInCartRuIndex].quantity, 'russian');
+      } else {
+        cartFlowerRu = {
+          id: flower.id,
+          name: selectedLanguage === 'russian' ? flower.name : getRussianName(flower.name),
+          price: flower.price,
+          color: selectedLanguage === 'russian' ? flower.color : getRussianColor(flower.color),
+          quantity: 1
+        };
+        await FlowerService.addFlowerToCart(cartFlowerRu, 'russian');
+      }
+
+      if (existingFlowerInCartEnIndex !== -1) {
+        flowersEn[existingFlowerInCartEnIndex].quantity += 1;
+        await FlowerService.updateCartFlowerQuantity(flowersEn[existingFlowerInCartEnIndex], flowersEn[existingFlowerInCartEnIndex].quantity, 'english');
+      } else {
+        cartFlowerEn = {
+          id: flower.id,
+          name: selectedLanguage === 'english' ? flower.name : getEnglishName(flower.name),
+          price: flower.price,
+          color: selectedLanguage === 'english' ? flower.color : getEnglishColor(flower.color),
+          quantity: 1
+        };
+        await FlowerService.addFlowerToCart(cartFlowerEn, 'english');
+      }
+    } catch (error) {
+      console.error('Ошибка при добавлении цветка в корзину:', error);
     }
   };
+
 
   return (
     <div className="App">

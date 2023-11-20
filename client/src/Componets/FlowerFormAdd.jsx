@@ -8,6 +8,7 @@ import {
     russianNameDictionary,
     russianColorDictionary,
 } from "../Dictionaries/MyDictionary";
+import { v4 as uuidv4 } from 'uuid';
 
 const FlowerFormAdd = ({ add }) => {
     const { locale, setLocale } = useContext(LocaleContext);
@@ -46,28 +47,30 @@ const FlowerFormAdd = ({ add }) => {
     const addNewFlower = async (e) => {
         e.preventDefault();
         let newFlowerRu, newFlowerEn;
+        const flowerId = uuidv4(); 
+    
         if (locale === 'ru') {
             newFlowerRu = {
-                id: Date.now(),
+                id: flowerId,
                 name: flower.name,
                 price: flower.price,
                 color: flower.color
             };
             newFlowerEn = {
-                id: Date.now(),
+                id: flowerId,
                 name: getEnglishName(flower.name),
                 price: flower.price,
                 color: getEnglishColor(flower.color)
             };
         } else {
             newFlowerEn = {
-                id: Date.now(),
+                id: flowerId,
                 name: flower.name,
                 price: flower.price,
                 color: flower.color
             };
             newFlowerRu = {
-                id: Date.now(),
+                id: flowerId,
                 name: getRussianName(flower.name),
                 price: flower.price,
                 color: getRussianColor(flower.color)
@@ -75,6 +78,7 @@ const FlowerFormAdd = ({ add }) => {
         }
         add(newFlowerRu, newFlowerEn);
     };
+    
 
     return (
         <MyForm

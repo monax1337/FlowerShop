@@ -3,18 +3,14 @@
     "id": "07eee3c9-ce5c-4f67-af7c-8d54b9e887ca",
     "name": "Peon",
     "price": "12",
-    "color": "Orange"
+    "color": "Orange",
+    "quantity": 1
   },
   {
     "id": "15105daa-a6bd-4d99-b179-3ad9e99ee4a7",
     "name": "Orchid",
     "price": "12",
-    "color": "White"
-  },
-  {
-    "id": "38393783-0b7f-4ac3-910f-594d275bead5",
-    "name": "Violet",
-    "price": "12",
-    "color": "White"
+    "color": "White",
+    "quantity": 1
   }
 ]
