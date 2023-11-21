@@ -103,7 +103,6 @@ app.put('/cart', (req, res) => {
   }
 });
 
-
 app.delete('/flowers', (req, res) => {
   const { flowerId, language } = req.body;
   const flowers = readFlowersFromFile(language);
@@ -120,7 +119,7 @@ app.delete('/cart', (req, res) => {
 
   const updatedFlowers = flowers.filter(flower => flower.id !== flowerId);
 
-  writeFlowersToFile(updatedFlowers, language);
+  writeFlowersToCart(updatedFlowers, language);
   res.send('Flower removed from cart successfully.');
 });
 

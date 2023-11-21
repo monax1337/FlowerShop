@@ -68,18 +68,19 @@ const Flowers = () => {
       const flowersRu = await FlowerService.getAllCartFlowers('russian');
       const flowersEn = await FlowerService.getAllCartFlowers('english');
 
-      console.log('Flowers Ru:', flowersRu);
-      console.log('Flowers En:', flowersEn);
+      const existingFlowerInCartRuIndex = flowersRu.findIndex((item) =>
+        (selectedLanguage === 'russian' ? item.name === flower.name : getRussianName(flower.name) === item.name) &&
+        (selectedLanguage === 'russian' ? item.color === flower.color : getRussianColor(flower.color) === item.color)
+      );
 
-      const existingFlowerInCartRuIndex = flowersRu.findIndex((item) => item.name === selectedLanguage === 'russian' ? flower.name : getRussianName(flower.name) && item.color === selectedLanguage === 'russian' ? flower.color : getRussianColor(flower.color));
-      const existingFlowerInCartEnIndex = flowersEn.findIndex((item) => item.name === selectedLanguage === 'english' ? flower.name : getEnglishName(flower.name) && item.color === selectedLanguage === 'english' ? flower.color : getEnglishColor(flower.color));
-
-      console.log(existingFlowerInCartRuIndex);
-      console.log(existingFlowerInCartEnIndex);
+      const existingFlowerInCartEnIndex = flowersEn.findIndex((item) =>
+        (selectedLanguage === 'english' ? item.name === flower.name : getEnglishName(flower.name) === item.name) &&
+        (selectedLanguage === 'english' ? item.color === flower.color : getEnglishColor(flower.color) === item.color)
+      );
 
       if (existingFlowerInCartRuIndex !== -1) {
         flowersRu[existingFlowerInCartRuIndex].quantity += 1;
-        await FlowerService.updateCartFlowerQuantity(flowersRu[existingFlowerInCartRuIndex], flowersRu[existingFlowerInCartRuIndex].quantity, 'russian');
+        await FlowerService.updateCartFlowerQuantity(existingFlowerInCartRuIndex, flowersRu[existingFlowerInCartRuIndex].quantity, 'russian');
       } else {
         cartFlowerRu = {
           id: flower.id,
@@ -93,7 +94,7 @@ const Flowers = () => {
 
       if (existingFlowerInCartEnIndex !== -1) {
         flowersEn[existingFlowerInCartEnIndex].quantity += 1;
-        await FlowerService.updateCartFlowerQuantity(flowersEn[existingFlowerInCartEnIndex], flowersEn[existingFlowerInCartEnIndex].quantity, 'english');
+        await FlowerService.updateCartFlowerQuantity(existingFlowerInCartEnIndex, flowersEn[existingFlowerInCartEnIndex].quantity, 'english');
       } else {
         cartFlowerEn = {
           id: flower.id,
@@ -108,7 +109,6 @@ const Flowers = () => {
       console.error('Ошибка при добавлении цветка в корзину:', error);
     }
   };
-
 
   return (
     <div className="App">

@@ -5,8 +5,6 @@ const defaultLocale = storedLocale || 'ru';
 
 export const AuthContext = createContext(null);
 
-export const CartContext = createContext(null);
-
 export const LocaleContext = createContext({
   locale: defaultLocale,
   setLocale: (newLocale) => {

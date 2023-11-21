@@ -1,16 +1,1 @@
-[
-  {
-    "id": "07eee3c9-ce5c-4f67-af7c-8d54b9e887ca",
-    "name": "Peon",
-    "price": "12",
-    "color": "Orange",
-    "quantity": 1
-  },
-  {
-    "id": "15105daa-a6bd-4d99-b179-3ad9e99ee4a7",
-    "name": "Orchid",
-    "price": "12",
-    "color": "White",
-    "quantity": 1
-  }
-]
+[]
