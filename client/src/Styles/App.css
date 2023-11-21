@@ -34,7 +34,6 @@
     padding: 15px;
     border: 2px solid green;
     margin-top: 15px;
-    justify-content: space-between;
     align-items: center;
 }
 
@@ -54,4 +53,10 @@
 .flower-exit-active {
     transform: translateX(-350px);
     transition: all 500ms ease-in;
+}
+
+.flower__image img{
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: cover;
 }

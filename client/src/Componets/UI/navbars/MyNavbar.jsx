@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import MyButton from "../buttons/MyButton";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Contexts";
 import { useIntl } from "react-intl";
 
@@ -8,19 +8,23 @@ const MyNavbar = ({ toggleLocale }) => {
   const { isAuth, setIsAuth } = useContext(AuthContext);
   const location = useLocation();
   const intl = useIntl();
+  const navigate = useNavigate();
 
-  const logout = () => {
-    setIsAuth(false);
+  const messages = React.useMemo(() => {
+    return {
+      logout: intl.formatMessage({ id: 'logout' }),
+      loginAsAdmin: intl.formatMessage({ id: 'loginAsAdmin' }),
+      adminPanel: intl.formatMessage({ id: 'adminPanel' }),
+      home: intl.formatMessage({ id: 'home' }),
+      cart: intl.formatMessage({ id: 'cart' }),
+      switchLanguage: intl.formatMessage({ id: 'switchLanguage' })
+    };
+  }, [intl]);
+
+  const handleLogout = async () => {
     localStorage.removeItem('auth');
-  }
-
-  const messages = {
-    logout: intl.formatMessage({ id: 'logout' }),
-    loginAsAdmin: intl.formatMessage({ id: 'loginAsAdmin' }),
-    adminPanel: intl.formatMessage({ id: 'adminPanel' }),
-    home: intl.formatMessage({ id: 'home' }),
-    cart: intl.formatMessage({ id: 'cart' }),
-    switchLanguage: intl.formatMessage({ id: 'switchLanguage' }),
+    await setIsAuth(false);
+    navigate('/flowers');
   };
 
   const showHomeButton = location.pathname !== '/flowers';
@@ -32,51 +36,43 @@ const MyNavbar = ({ toggleLocale }) => {
     <div className="navbar">
       {showLoginButton && (
         <div className="navbar__admin">
-          <MyButton>
-            {isAuth
-              ?
-              <Link to='/flowers' onClick={logout} className="linkStyle">
-                {messages.logout}
-              </Link>
-              :
-              <Link to='/login' className="linkStyle">
-                {messages.loginAsAdmin}
-              </Link>
-            }
-          </MyButton>
+          {isAuth
+            ?
+            <Link to='/flowers' onClick={handleLogout} className="linkStyle">
+              {messages.logout}
+            </Link>
+            :
+            <Link to='/login' className="linkStyle">
+              {messages.loginAsAdmin}
+            </Link>
+          }
         </div>
       )}
       {isAuth
         ?
         (showPanelButton && (
           <div className="navbar__adminPanel">
-            <MyButton>
-              <Link to='/admin' className="linkStyle">
-                {messages.adminPanel}
-              </Link>
-            </MyButton>
+            <Link to='/admin' className="linkStyle">
+              {messages.adminPanel}
+            </Link>
           </div>))
         :
         (showHomeButton && (
           <div className="navbar__home">
-            <MyButton>
-              <Link to='/flowers' className="linkStyle">
-                {messages.home}
-              </Link>
-            </MyButton>
+            <Link to='/flowers' className="linkStyle">
+              {messages.home}
+            </Link>
           </div>))
       }
       {!isAuth && showCartButton && (
         <div className="navbar__cart">
-          <MyButton>
-            <Link to='/cart' className="linkStyle">
-              {messages.cart}
-            </Link>
-          </MyButton>
+          <Link to='/cart' className="linkStyle">
+            {messages.cart}
+          </Link>
         </div>)
       }
       <div className="navbar__language">
-        <MyButton onClick={toggleLocale}>
+        <MyButton style={{ border: "none" }} onClick={toggleLocale}>
           {messages.switchLanguage}
         </MyButton>
       </div>
@@ -84,4 +80,4 @@ const MyNavbar = ({ toggleLocale }) => {
   )
 };
 
-export default MyNavbar
+export default MyNavbar;
