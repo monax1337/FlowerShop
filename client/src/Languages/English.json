@@ -49,5 +49,7 @@
   "pageTitle": "Login Page",
   "loginPlaceholder": "Enter your login",
   "passwordPlaceholder": "Enter your password",
-  "loginButton": "Login"
+  "loginButton": "Login",
+  "unfilledFields": "Please fill in all fields",
+  "flowerAdded": "Flower successfully added"
 }

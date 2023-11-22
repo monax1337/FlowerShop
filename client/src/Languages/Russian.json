@@ -49,5 +49,7 @@
   "pageTitle": "Страница для логина",
   "loginPlaceholder": "Введите логин",
   "passwordPlaceholder": "Введите пароль",
-  "loginButton": "Войти"
+  "loginButton": "Войти",
+  "unfilledFields": "Заполните все поля",
+  "flowerAdded": "Цветок успешно добавлен"
 }

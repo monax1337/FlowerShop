@@ -9,6 +9,19 @@ const MyForm = ({ colorChange, priceChange, nameChange, func, flower, buttonText
     const intl = useIntl();
     const { locale, setLocale } = useContext(LocaleContext);
 
+    const isFormValid = () => {
+        return flower.name !== '' && flower.price !== '' && flower.color !== '';
+    };
+
+    // const handleSubmit = (e) => {
+    //     //e.preventDefault();
+    //     if (isFormValid()) {
+    //         func();
+    //     } else {
+    //         alert(intl.formatMessage({ id: 'unfilledFields' }));
+    //     }
+    // };
+
     return (
         <form>
             <MySelect

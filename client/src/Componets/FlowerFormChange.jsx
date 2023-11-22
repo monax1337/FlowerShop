@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import MyForm from './UI/forms/MyForm';
 import { useIntl } from "react-intl";
 import { LocaleContext } from '../Contexts';
@@ -19,6 +19,10 @@ const FlowerFormChange = ({ flower, change }) => {
     color: flower ? flower.color : '',
     price: ''
   });
+
+  useEffect(() => {
+    setUpdatedFlower({ name: '', price: '', color: '' });
+  }, [locale])
 
   const getEnglishName = (name) => {
     return englishNameDictionary[name];

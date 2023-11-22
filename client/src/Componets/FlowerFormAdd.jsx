@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MyForm from "./UI/forms/MyForm";
 import { useIntl } from "react-intl";
 import { LocaleContext } from "../Contexts";
@@ -32,6 +32,10 @@ const FlowerFormAdd = ({ add }) => {
 
     const [flower, setFlower] = useState({ name: '', price: '', color: '' });
 
+    useEffect(() => {
+        setFlower({ name: '', price: '', color: '' });
+    }, [locale])
+
     const handleNameChange = (value) => {
         setFlower({ ...flower, name: value });
     };
@@ -47,8 +51,8 @@ const FlowerFormAdd = ({ add }) => {
     const addNewFlower = async (e) => {
         e.preventDefault();
         let newFlowerRu, newFlowerEn;
-        const flowerId = uuidv4(); 
-    
+        const flowerId = uuidv4();
+
         if (locale === 'ru') {
             newFlowerRu = {
                 id: flowerId,
@@ -78,7 +82,6 @@ const FlowerFormAdd = ({ add }) => {
         }
         add(newFlowerRu, newFlowerEn);
     };
-    
 
     return (
         <MyForm

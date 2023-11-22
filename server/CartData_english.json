@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "id": "992cbfe7-1d4f-4696-ab33-00012b401137",
+    "name": "Lily",
+    "price": "12",
+    "color": "Yellow",
+    "quantity": 3
+  }
+]

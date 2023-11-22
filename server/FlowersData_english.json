@@ -1,68 +1,20 @@
 [
   {
-    "id": "992cbfe7-1d4f-4696-ab33-00012b401137",
-    "name": "Lily",
-    "price": "12",
-    "color": "Yellow"
-  },
-  {
-    "id": "c3744361-26fc-4ca1-a8fe-86b5aa9eaf9a",
+    "id": "847d1493-f1d9-4729-b777-b1771092b49d",
     "name": "Tulip",
-    "price": "123",
+    "price": "0",
     "color": "Blue"
   },
   {
-    "id": "ed5c2ab2-3257-4e57-bd0e-3ae56194eb97",
-    "name": "Tulip",
-    "price": "12",
-    "color": "White"
-  },
-  {
-    "id": "d6ca602e-cb9d-4f30-ae59-dc58606d633d",
-    "name": "Rose",
-    "price": "12",
-    "color": "Pink"
-  },
-  {
-    "id": "fbb252a6-56de-42f4-b935-03d5ca05bfb9",
-    "name": "Orchid",
-    "price": "12",
-    "color": "Red"
-  },
-  {
-    "id": "1eafa981-6163-40a2-b871-7479318bc18b",
-    "name": "Orchid",
-    "price": "",
-    "color": "Orange"
-  },
-  {
-    "id": "e9f359a7-94cd-4bb6-a231-fd50d649fd7b",
+    "id": "acbecd4a-85ee-4f54-ae76-69fd5298daff",
     "name": "Peon",
-    "price": "",
-    "color": "White"
+    "price": "0",
+    "color": "Yellow"
   },
   {
-    "id": "e75a193b-ab08-436c-bc59-2082ee91688f",
-    "name": "Carnation",
-    "price": "",
-    "color": "White"
-  },
-  {
-    "id": "bd3e0fe6-81ff-43a3-8588-a348cc1c5661",
-    "name": "Violet",
-    "price": "",
-    "color": "White"
-  },
-  {
-    "id": "11671a79-b830-4719-ac75-77f52aa23956",
-    "name": "Daffodil",
-    "price": "",
-    "color": "White"
-  },
-  {
-    "id": "0975315e-89a2-400f-b71e-2e52c3a28395",
-    "name": "Chrysanthemum",
-    "price": "",
+    "id": "8cf434e8-b9ef-41d6-ac1d-35e4599345d7",
+    "name": "Tulip",
+    "price": "2",
     "color": "White"
   }
 ]

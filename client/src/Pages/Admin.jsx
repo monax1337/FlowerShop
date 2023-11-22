@@ -48,6 +48,7 @@ const Admin = () => {
     setFlowers([...flowers, newFlowerRu, newFlowerEn]);
     await FlowerService.addFlowerToService(newFlowerEn, 'english');
     await FlowerService.addFlowerToService(newFlowerRu, 'russian');
+    //alert(intl.formatMessage({ id: 'flowerAdded' }));
   };
 
   const removeFlower = async (flower) => {
