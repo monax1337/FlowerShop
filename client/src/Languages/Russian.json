@@ -51,5 +51,11 @@
   "passwordPlaceholder": "Введите пароль",
   "loginButton": "Войти",
   "unfilledFields": "Заполните все поля",
-  "flowerAdded": "Цветок успешно добавлен"
+  "flowerAdded": "Цветок успешно добавлен",
+  "addToBouquet": "Добавить в букет",
+  "AdditionalDecoration": "Дополнительное оформление",
+  "SatinRibbon": "Атласная лента",
+  "CellophanePackaging": "Целлофановая упаковка",
+  "DecorativePackaging": "Декоративная упаковка",
+  "PlaceAnOrder": "Оформить заказ"
 }

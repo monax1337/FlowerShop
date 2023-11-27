@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import MySelect from "../selects/MySlect";
 import MyInput from "../inputs/MyInput";
-import MyButton from "../buttons/MyButton";
+import cls from "./MyForm.module.css"
 import { useIntl } from "react-intl";
 import { LocaleContext } from "../../../Contexts";
 
@@ -13,14 +13,14 @@ const MyForm = ({ colorChange, priceChange, nameChange, func, flower, buttonText
         return flower.name !== '' && flower.price !== '' && flower.color !== '';
     };
 
-    // const handleSubmit = (e) => {
-    //     //e.preventDefault();
-    //     if (isFormValid()) {
-    //         func();
-    //     } else {
-    //         alert(intl.formatMessage({ id: 'unfilledFields' }));
-    //     }
-    // };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (isFormValid()) {
+            func();
+        } else {
+            alert(intl.formatMessage({ id: 'unfilledFields' }));
+        }
+    };
 
     return (
         <form>
@@ -61,7 +61,7 @@ const MyForm = ({ colorChange, priceChange, nameChange, func, flower, buttonText
                 type="text"
                 placeholder={intl.formatMessage({ id: 'pricePlaceholder' })}
             />
-            <MyButton onClick={func}>{buttonText}</MyButton>
+            <button className={cls.BTN} onClick={handleSubmit}>{buttonText}</button>
         </form>
     )
 };

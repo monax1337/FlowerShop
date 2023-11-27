@@ -1,9 +1,16 @@
 [
   {
-    "id": "992cbfe7-1d4f-4696-ab33-00012b401137",
-    "name": "Лилия",
-    "price": "12",
+    "id": "f37a5ea6-5765-48c0-87f9-4d9627475c83",
+    "name": "Гвоздика",
+    "price": "1",
+    "color": "Белый",
+    "quantity": 1
+  },
+  {
+    "id": "49afdb9b-567f-4b29-8fcb-6b15daef7a04",
+    "name": "Тюльпан",
+    "price": "90",
     "color": "Желтый",
-    "quantity": 3
+    "quantity": 1
   }
 ]

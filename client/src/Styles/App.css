@@ -6,8 +6,27 @@
 
 #root {
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+}
+
+.cart {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cart__sidebar {
+    background-color: #f2f2f2;
+    border: 2px solid green;
+    margin: 20px 0;
+    height: fit-content;
+}
+.cart__menu {
+    display: block;
+}
+
+.cart__content {
+    padding: 20px;
 }
 
 .App {
@@ -55,8 +74,12 @@
     transition: all 500ms ease-in;
 }
 
-.flower__image img{
+.flower__image img {
     width: 200px;
     height: 200px;
     object-fit: cover;
+}
+
+.cart__h3 {
+    margin: 15px 10px;
 }

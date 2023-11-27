@@ -51,5 +51,11 @@
   "passwordPlaceholder": "Enter your password",
   "loginButton": "Login",
   "unfilledFields": "Please fill in all fields",
-  "flowerAdded": "Flower successfully added"
+  "flowerAdded": "Flower successfully added",
+  "addToBouquet": "Add to bouquet",
+  "AdditionalDecoration": "Additional decoration",
+  "SatinRibbon": "Additional decoration",
+  "CellophanePackaging": "Cellophane packaging",
+  "DecorativePackaging": "Decorative packaging",
+  "PlaceAnOrder": "Place an order"
 }

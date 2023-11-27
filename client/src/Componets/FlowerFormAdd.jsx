@@ -49,7 +49,7 @@ const FlowerFormAdd = ({ add }) => {
     };
 
     const addNewFlower = async (e) => {
-        e.preventDefault();
+        //e.preventDefault();
         let newFlowerRu, newFlowerEn;
         const flowerId = uuidv4();
 
