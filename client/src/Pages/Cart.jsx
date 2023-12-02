@@ -18,6 +18,7 @@ const Cart = () => {
     })
     const [cartFlowers, setCartFlowers] = useState([]);
     const {locale, setLocale} = useContext(LocaleContext);
+    const [totalPrice, setTotalPrice] = useState(0);
 
     const selectedLanguage = locale === 'ru' ? 'russian' : 'english';
 
@@ -36,6 +37,17 @@ const Cart = () => {
     const getRussianColor = (color) => {
         return russianColorDictionary[color];
     };
+
+    useEffect(() => {
+        const calculateTotalPrice = () => {
+            let totalPrice = 0;
+            cartFlowers.forEach(flower => {
+                totalPrice += flower.price * flower.quantity;
+            });
+            setTotalPrice(totalPrice);
+        };
+        calculateTotalPrice();
+    }, [cartFlowers]);
 
     useEffect(() => {
         const getFlowers = async () => {
@@ -88,6 +100,9 @@ const Cart = () => {
                 <MyCheckBox text={intl.formatMessage({id: 'SatinRibbon'})}/>
                 <MyCheckBox text={intl.formatMessage({id: 'CellophanePackaging'})}/>
                 <MyCheckBox text={intl.formatMessage({id: 'DecorativePackaging'})}/>
+            </div>
+            <div>
+                <h2 className="cart__h2">{intl.formatMessage({id: 'TotalPrice'})}: {totalPrice}</h2>
             </div>
             <div>
                 <MyButton>{intl.formatMessage({id: 'PlaceAnOrder'})}</MyButton>

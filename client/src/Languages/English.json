@@ -57,5 +57,6 @@
   "SatinRibbon": "Additional decoration",
   "CellophanePackaging": "Cellophane packaging",
   "DecorativePackaging": "Decorative packaging",
-  "PlaceAnOrder": "Place an order"
+  "PlaceAnOrder": "Place an order",
+  "TotalPrice" : "Total Price"
 }

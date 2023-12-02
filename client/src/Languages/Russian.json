@@ -57,5 +57,6 @@
   "SatinRibbon": "Атласная лента",
   "CellophanePackaging": "Целлофановая упаковка",
   "DecorativePackaging": "Декоративная упаковка",
-  "PlaceAnOrder": "Оформить заказ"
+  "PlaceAnOrder": "Оформить заказ",
+  "TotalPrice" : "Общая цена"
 }
