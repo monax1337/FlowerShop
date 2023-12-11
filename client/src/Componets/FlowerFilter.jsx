@@ -11,6 +11,7 @@ const FlowerFilter = ({ filter, setFilter }) => {
             <MyInput
                 value={filter.query}
                 onChange={e => setFilter({ ...filter, query: e.target.value })}
+                style={{marginTop: "20px"}}
                 placeholder={intl.formatMessage({ id: 'searchPlaceholder' })}
             />
             <MySelect

@@ -6,7 +6,6 @@ import {useIntl} from "react-intl";
 
 const FlowerList = ({
                         flowers,
-                        setModal,
                         removeFlowerFromList,
                         handleFlowerSelection,
                         changeFlower,
@@ -38,7 +37,6 @@ const FlowerList = ({
                         <FlowerItem
                             removeFlowerFromList={removeFlowerFromList}
                             handleFlowerSelection={handleFlowerSelection}
-                            setModal={setModal}
                             changeFlower={changeFlower}
                             addToCart={addToCart}
                             number={index + 1}

@@ -1,26 +1,20 @@
 [
   {
-    "id": "5c027e92-1b42-4e68-aa5c-9ed05f9403c1",
-    "name": "Carnation",
-    "price": "90",
-    "color": "Purple"
+    "id": "31982cf7-bb20-491a-811c-ff7ce43d8345",
+    "name": "Iris",
+    "price": "89",
+    "color": "Blue"
   },
   {
-    "id": "d3a13d7c-4888-4d6f-a53d-8118023fcb10",
-    "name": "Carnation",
-    "price": "90",
-    "color": "Purple"
-  },
-  {
-    "id": "edbb3b2d-5c2e-43cb-93d7-5e607b64846c",
-    "name": "Lily",
-    "price": "234",
+    "id": "891bf76e-8cb8-482f-b9c5-c6a234207c17",
+    "name": "Peon",
+    "price": "45678",
     "color": "White"
   },
   {
-    "id": "18556e1f-ea9b-4961-9c9b-aaa3ec5de6b3",
-    "name": "Carnation",
-    "price": "90",
+    "id": "4c5368ce-2d0d-4653-a6e5-00f8a5b40d6f",
+    "name": "Orchid",
+    "price": "345",
     "color": "Red"
   }
 ]

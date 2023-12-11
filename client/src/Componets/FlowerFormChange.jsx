@@ -53,7 +53,7 @@ const FlowerFormChange = ({ flower, change }) => {
   };
 
   const updateFlower = async (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     if (!flower) return;
     let changedFlowerRu, changedFlowerEn;
 
