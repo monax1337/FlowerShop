@@ -66,5 +66,6 @@
   "DecorativePackaging": "Decorative packaging",
   "PlaceAnOrder": "Place an order",
   "TotalPrice": "Total Price",
-  "Flowers": "flowers"
+  "Flowers": "flowers",
+  "IncorrectQuantityEntry": "Incorrect quantity entry"
 }

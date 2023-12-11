@@ -51,7 +51,7 @@ const Flowers = () => {
         getBouquets();
     }, [locale]);
 
-    const addToCart = async (flower) => {
+    const addToCart = async (flower, quantity) => {
         try {
             let cartFlowerRu, cartFlowerEn;
 
@@ -62,7 +62,7 @@ const Flowers = () => {
             const existingFlowerInCartEnIndex = flowersEn.findIndex((item) => (selectedLanguage === 'english' ? item.name === flower.name : getEnglishName(flower.name) === item.name) && (selectedLanguage === 'english' ? item.color === flower.color : getEnglishColor(flower.color) === item.color));
 
             if (existingFlowerInCartRuIndex !== -1) {
-                flowersRu[existingFlowerInCartRuIndex].quantity += 1;
+                flowersRu[existingFlowerInCartRuIndex].quantity += quantity;
                 await FlowerService.updateCartFlowerQuantity(existingFlowerInCartRuIndex, flowersRu[existingFlowerInCartRuIndex].quantity, 'russian');
             } else {
                 cartFlowerRu = {
@@ -70,13 +70,13 @@ const Flowers = () => {
                     name: selectedLanguage === 'russian' ? flower.name : getRussianName(flower.name),
                     price: flower.price,
                     color: selectedLanguage === 'russian' ? flower.color : getRussianColor(flower.color),
-                    quantity: 1
+                    quantity: quantity
                 };
                 await FlowerService.addFlowerToCart(cartFlowerRu, 'russian');
             }
 
             if (existingFlowerInCartEnIndex !== -1) {
-                flowersEn[existingFlowerInCartEnIndex].quantity += 1;
+                flowersEn[existingFlowerInCartEnIndex].quantity += quantity;
                 await FlowerService.updateCartFlowerQuantity(existingFlowerInCartEnIndex, flowersEn[existingFlowerInCartEnIndex].quantity, 'english');
             } else {
                 cartFlowerEn = {
@@ -84,7 +84,7 @@ const Flowers = () => {
                     name: selectedLanguage === 'english' ? flower.name : getEnglishName(flower.name),
                     price: flower.price,
                     color: selectedLanguage === 'english' ? flower.color : getEnglishColor(flower.color),
-                    quantity: 1
+                    quantity: quantity
                 };
                 await FlowerService.addFlowerToCart(cartFlowerEn, 'english');
             }

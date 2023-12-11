@@ -88,3 +88,19 @@
 .cart__h2 {
     margin: 15px 0px;
 }
+
+.flower__quantity {
+    margin: 12px 0;
+}
+
+.flower__characters {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.flower__input {
+    text-align: center;
+    height: 30px;
+    font-size: 17px;
+    width: 85px;
+}

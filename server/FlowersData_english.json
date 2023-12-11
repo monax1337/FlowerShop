@@ -2,19 +2,19 @@
   {
     "id": "31982cf7-bb20-491a-811c-ff7ce43d8345",
     "name": "Iris",
-    "price": "89",
+    "price": "1375",
     "color": "Blue"
   },
   {
     "id": "891bf76e-8cb8-482f-b9c5-c6a234207c17",
     "name": "Peon",
-    "price": "45678",
+    "price": "1500",
     "color": "White"
   },
   {
     "id": "4c5368ce-2d0d-4653-a6e5-00f8a5b40d6f",
     "name": "Orchid",
-    "price": "345",
+    "price": "2250",
     "color": "Red"
   }
 ]

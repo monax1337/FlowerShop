@@ -31,6 +31,7 @@ const App = () => {
         setCurrentLocale(locale || 'en');
     }, [locale]);
 
+
     return (
         <LocaleContext.Provider value={{locale: currentLocale, setLocale}}>
             <IntlProvider

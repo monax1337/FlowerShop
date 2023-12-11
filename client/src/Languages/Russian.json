@@ -66,5 +66,6 @@
   "DecorativePackaging": "Декоративная упаковка",
   "PlaceAnOrder": "Оформить заказ",
   "TotalPrice": "Общая цена",
-  "Flowers": "цветов"
+  "Flowers": "цветов",
+  "IncorrectQuantityEntry": "Некорректный ввод количества"
 }
