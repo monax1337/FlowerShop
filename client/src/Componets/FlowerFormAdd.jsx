@@ -1,17 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {useContext, useEffect, useState} from "react";
 import MyForm from "./UI/forms/MyForm";
-import { useIntl } from "react-intl";
-import { LocaleContext } from "../Contexts";
+import {useIntl} from "react-intl";
+import {LocaleContext} from "../Contexts";
 import {
     englishNameDictionary,
     englishColorDictionary,
     russianNameDictionary,
     russianColorDictionary,
 } from "../Dictionaries/MyDictionary";
-import { v4 as uuidv4 } from 'uuid';
+import {v4 as uuidv4} from 'uuid';
 
-const FlowerFormAdd = ({ add }) => {
-    const { locale, setLocale } = useContext(LocaleContext);
+const FlowerFormAdd = ({add}) => {
+    const {locale, setLocale} = useContext(LocaleContext);
     const intl = useIntl();
 
     const getEnglishName = (name) => {
@@ -30,26 +30,25 @@ const FlowerFormAdd = ({ add }) => {
         return russianColorDictionary[color];
     };
 
-    const [flower, setFlower] = useState({ name: '', price: '', color: '' });
+    const [flower, setFlower] = useState({name: '', price: '', color: ''});
 
     useEffect(() => {
-        setFlower({ name: '', price: '', color: '' });
+        setFlower({name: '', price: '', color: ''});
     }, [locale])
 
     const handleNameChange = (value) => {
-        setFlower({ ...flower, name: value });
+        setFlower({...flower, name: value});
     };
 
     const handlePriceChange = (value) => {
-        setFlower({ ...flower, price: value });
+        setFlower({...flower, price: value});
     };
 
     const handleColorChange = (value) => {
-        setFlower({ ...flower, color: value });
+        setFlower({...flower, color: value});
     };
 
-    const addNewFlower = async (e) => {
-        //e.preventDefault();
+    const addNewFlower = async () => {
         let newFlowerRu, newFlowerEn;
         const flowerId = uuidv4();
 
@@ -90,7 +89,7 @@ const FlowerFormAdd = ({ add }) => {
             nameChange={handleNameChange}
             func={addNewFlower}
             flower={flower}
-            buttonText={intl.formatMessage({ id: 'addFlowerButton' })}
+            buttonText={intl.formatMessage({id: 'addFlowerButton'})}
         />
     );
 };

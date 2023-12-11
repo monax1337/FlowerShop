@@ -52,7 +52,7 @@
   "panelTitleBouquet": "Панель букетов",
   "cartTitle": "Ваша корзина:",
   "listTitle": "Список цветов",
-  "bouquetListTitle" : "Список букетов",
+  "bouquetListTitle": "Список букетов",
   "pageTitle": "Страница для логина",
   "loginPlaceholder": "Введите логин",
   "passwordPlaceholder": "Введите пароль",
@@ -65,5 +65,6 @@
   "CellophanePackaging": "Целлофановая упаковка",
   "DecorativePackaging": "Декоративная упаковка",
   "PlaceAnOrder": "Оформить заказ",
-  "TotalPrice" : "Общая цена"
+  "TotalPrice": "Общая цена",
+  "Flowers": "цветов"
 }

@@ -21,6 +21,7 @@
     margin: 20px 0;
     height: fit-content;
 }
+
 .cart__menu {
     display: block;
 }
@@ -31,9 +32,6 @@
 
 .App {
     width: 800px;
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    /*justify-content: space-between;*/
 }
 
 .navbar {

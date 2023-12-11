@@ -8,7 +8,12 @@ const CartItem = (props) => {
     return (<div>
         <div className="flower" style={{justifyContent: "space-between"}}>
             <div className="flower__content">
-                <strong>{props.flower.name} ({props.flower.color})</strong>
+                {
+                    (props.flower.color) ?
+                        <strong>{props.flower.name} ({props.flower.color})</strong>
+                        :
+                        <strong>{props.flower.name} ({props.flower.amount} {intl.formatMessage({id: 'Flowers'})})</strong>
+                }
                 <div>
                     {intl.formatMessage({id: 'priceText'})}: {props.flower.price} | {intl.formatMessage({id: 'quantityText'})}: {props.flower.quantity}
                 </div>

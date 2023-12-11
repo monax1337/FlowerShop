@@ -1,26 +1,20 @@
 [
   {
-    "id": "54ec3793-9669-4306-b30f-445eed393970",
-    "name": "Rose",
-    "price": "4000",
-    "quantity": "4000"
-  },
-  {
     "id": "ba3c835e-f94d-4d4b-83df-325bd634ea74",
-    "name": "Peon",
-    "price": "12",
-    "quantity": "12"
+    "name": "Lily",
+    "price": "56789",
+    "amount": "56"
   },
   {
     "id": "1364604b-1c47-4009-9d2e-e122c078ba4c",
     "name": "Chrysanthemum",
     "price": "4567890",
-    "quantity": "86789"
+    "amount": "86789"
   },
   {
     "id": "5a12c2a6-d59b-48f5-82a4-8f0045d735ca",
     "name": "Lily",
     "price": "21",
-    "quantity": "21"
+    "amount": "21"
   }
 ]

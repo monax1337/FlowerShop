@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React, {useContext} from "react";
 import MyButton from "./UI/buttons/MyButton";
-import { AuthContext, LocaleContext } from "../Contexts";
-import { useIntl } from "react-intl";
+import {AuthContext, LocaleContext} from "../Contexts";
+import {useIntl} from "react-intl";
 import {
     englishNameDictionary,
     englishColorDictionary
@@ -9,8 +9,8 @@ import {
 
 const FlowerItem = (props) => {
     const intl = useIntl();
-    const { isAuth, setIsAuth } = useContext(AuthContext);
-    const { locale, setLocale } = useContext(LocaleContext);
+    const {isAuth, setIsAuth} = useContext(AuthContext);
+    const {locale, setLocale} = useContext(LocaleContext);
 
     const getEnglishName = (name) => {
         return englishNameDictionary[name];
@@ -27,15 +27,15 @@ const FlowerItem = (props) => {
             : `/images/${props.flower.color}${props.flower.name}.jpg`;
 
     return (
-        <div className="flower" style={{ justifyContent: "space-around" }}>
+        <div className="flower" style={{justifyContent: "space-around"}}>
             <div className="flower__image">
-                <img src={path} />
+                <img src={path}/>
             </div>
             <div className="flower__content">
                 <div className="flower__info">
                     <strong>{props.flower.name} ({props.flower.color})</strong>
                     <div>
-                        {intl.formatMessage({ id: 'priceText' })}: {props.flower.price}
+                        {intl.formatMessage({id: 'priceText'})}: {props.flower.price}
                     </div>
                 </div>
 
@@ -43,11 +43,14 @@ const FlowerItem = (props) => {
                     {isAuth
                         ?
                         <>
-                            <MyButton onClick={() => props.handleFlowerSelection(props.flower)}>{intl.formatMessage({ id: 'editButton' })}</MyButton>
-                            <MyButton style={{ marginLeft: '10px' }} onClick={() => props.removeFlowerFromList(props.flower)}>{intl.formatMessage({ id: 'deleteButton' })}</MyButton>
+                            <MyButton
+                                onClick={() => props.handleFlowerSelection(props.flower)}>{intl.formatMessage({id: 'editButton'})}</MyButton>
+                            <MyButton style={{marginLeft: '10px'}}
+                                      onClick={() => props.removeFlowerFromList(props.flower)}>{intl.formatMessage({id: 'deleteButton'})}</MyButton>
                         </>
                         :
-                        <MyButton onClick={() => props.addToCart(props.flower)}>{intl.formatMessage({ id: 'addToCartButton' })}</MyButton>
+                        <MyButton
+                            onClick={() => props.addToCart(props.flower)}>{intl.formatMessage({id: 'addToCartButton'})}</MyButton>
                     }
                 </div>
             </div>

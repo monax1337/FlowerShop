@@ -1,6 +1,4 @@
 import React, {useContext, useEffect, useState} from "react";
-import {useFetching} from "../hooks/useFetching";
-import MyLoader from "../Componets/UI/loaders/MyLoader";
 import CartList from "../Componets/CartList";
 import {LocaleContext} from "../Contexts";
 import {useIntl} from "react-intl";
@@ -14,8 +12,6 @@ import MyButton from "../Componets/UI/buttons/MyButton";
 
 const Cart = () => {
     const intl = useIntl();
-    const [fetchFlowers, isFlowersLoading, flowerError] = useFetching(async () => {
-    })
     const [cartFlowers, setCartFlowers] = useState([]);
     const {locale, setLocale} = useContext(LocaleContext);
     const [totalPrice, setTotalPrice] = useState(0);
@@ -49,22 +45,14 @@ const Cart = () => {
         calculateTotalPrice();
     }, [cartFlowers]);
 
-    useEffect(() => {
-        const getFlowers = async () => {
-            const fetchedFlowers = await FlowerService.getAllCartFlowers(selectedLanguage);
-            setCartFlowers(fetchedFlowers);
-        };
-        getFlowers();
-        fetchFlowers();
-    }, [setCartFlowers])
+    const getFlowers = async () => {
+        const fetchedFlowers = await FlowerService.getAllCartFlowers(selectedLanguage);
+        setCartFlowers(fetchedFlowers);
+    };
 
     useEffect(() => {
-        const getFlowers = async () => {
-            const fetchedFlowers = await FlowerService.getAllCartFlowers(selectedLanguage);
-            setCartFlowers(fetchedFlowers);
-        };
         getFlowers();
-    }, [fetchFlowers])
+    }, [setCartFlowers])
 
     const removeFromCart = async (flower) => {
         try {
@@ -88,6 +76,13 @@ const Cart = () => {
             } else {
                 await FlowerService.removeFlowersFromCart(flowersEn[existingFlowerInCartEnIndex].id, 'english');
             }
+            const updatedCart = cartFlowers.map(item => {
+                if (item.id === flower.id) {
+                    return {...item, quantity: item.quantity - 1};
+                }
+                return item;
+            }).filter(item => item.quantity > 0);
+            setCartFlowers(updatedCart);
         } catch (error) {
             console.error('Ошибка при добавлении цветка в корзину:', error);
         }
@@ -111,10 +106,6 @@ const Cart = () => {
 
         <div className="cart__content">
             <div className="App">
-                {flowerError && (<h2>{intl.formatMessage({id: 'errorText'})}{flowerError}</h2>)}
-                {isFlowersLoading && (<div style={{display: 'flex', justifyContent: 'center', marginTop: '50px'}}>
-                    <MyLoader/>
-                </div>)}
                 <CartList cart={cartFlowers} removeFromCart={removeFromCart}
                           title={intl.formatMessage({id: 'cartTitle'})}/>
             </div>

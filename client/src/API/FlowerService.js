@@ -31,16 +31,6 @@ export default class FlowerService {
         }
     }
 
-    static async getAllCartBouquets(language) {
-        try {
-            const response = await axios.get(`http://localhost:3000/cart?language=${language}`);
-            return response.data;
-        } catch (error) {
-            console.error('Ошибка при получении цветов:', error);
-            return [];
-        }
-    }
-
     static async addFlowerToService(newFlower, language) {
         try {
             const response = await axios.post('http://localhost:3000/flowers', {newFlower, language});
@@ -117,7 +107,7 @@ export default class FlowerService {
         try {
             if (newQuantity >= 0) {
                 const response = await axios.put('http://localhost:3000/cart', {
-                    flowerIndex, newQuantity, language,
+                    flowerIndex, newQuantity, language
                 });
                 console.log('Количество цветков успешно обновлено:', response.data);
             } else {

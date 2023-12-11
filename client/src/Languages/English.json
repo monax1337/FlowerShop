@@ -52,7 +52,7 @@
   "panelTitleBouquet": "Bouquet Panel",
   "cartTitle": "Your Cart:",
   "listTitle": "Flower List",
-  "bouquetListTitle" : "Bouquet List",
+  "bouquetListTitle": "Bouquet List",
   "pageTitle": "Login Page",
   "loginPlaceholder": "Enter your login",
   "passwordPlaceholder": "Enter your password",
@@ -65,5 +65,6 @@
   "CellophanePackaging": "Cellophane packaging",
   "DecorativePackaging": "Decorative packaging",
   "PlaceAnOrder": "Place an order",
-  "TotalPrice" : "Total Price"
+  "TotalPrice": "Total Price",
+  "Flowers": "flowers"
 }

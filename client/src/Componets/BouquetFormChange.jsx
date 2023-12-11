@@ -14,12 +14,12 @@ const BouquetFormChange = ({bouquet, change}) => {
     const [updatedBouquet, setUpdatedBouquet] = useState({
         id: bouquet ? bouquet.id : '',
         name: bouquet ? bouquet.name : '',
-        quantity: bouquet ? bouquet.quantity : '',
+        amount: bouquet ? bouquet.amount : '',
         price: ''
     });
 
     useEffect(() => {
-        setUpdatedBouquet({name: '', price: '', quantity: ''});
+        setUpdatedBouquet({name: '', price: '', amount: ''});
     }, [locale])
 
     const getEnglishName = (name) => {
@@ -38,12 +38,11 @@ const BouquetFormChange = ({bouquet, change}) => {
         setUpdatedBouquet({...updatedBouquet, price: value});
     };
 
-    const handleQuantityChange = (value) => {
-        setUpdatedBouquet({...updatedBouquet, quantity: value});
+    const handleAmountChange = (value) => {
+        setUpdatedBouquet({...updatedBouquet, amount: value});
     };
 
-    const updateBouquet = async (e) => {
-        //e.preventDefault();
+    const updateBouquet = async () => {
         if (!bouquet) return;
         let changedBouquetRu, changedBouquetEn;
 
@@ -52,26 +51,26 @@ const BouquetFormChange = ({bouquet, change}) => {
                 id: bouquet.id,
                 name: updatedBouquet.name,
                 price: updatedBouquet.price,
-                quantity: updatedBouquet.quantity
+                amount: updatedBouquet.amount
             };
             changedBouquetEn = {
                 id: bouquet.id,
                 name: getEnglishName(updatedBouquet.name),
                 price: updatedBouquet.price,
-                quantity: updatedBouquet.quantity
+                amount: updatedBouquet.amount
             };
         } else {
             changedBouquetEn = {
                 id: bouquet.id,
                 name: updatedBouquet.name,
                 price: updatedBouquet.price,
-                quantity: updatedBouquet.quantity
+                amount: updatedBouquet.amount
             };
             changedBouquetRu = {
                 id: bouquet.id,
                 name: getRussianName(updatedBouquet.name),
                 price: updatedBouquet.price,
-                quantity: updatedBouquet.quantity
+                amount: updatedBouquet.amount
             };
         }
         change(changedBouquetRu, changedBouquetEn);
@@ -79,12 +78,12 @@ const BouquetFormChange = ({bouquet, change}) => {
 
     return (
         <MyBouquetForm
-            quantityChange={handleQuantityChange}
+            amountChange={handleAmountChange}
             priceChange={handlePriceChange}
             nameChange={handleNameChange}
             func={updateBouquet}
             bouquet={updatedBouquet}
-            buttonText={intl.formatMessage({ id: 'updateBouquetButton' })}
+            buttonText={intl.formatMessage({id: 'updateBouquetButton'})}
         />
     );
 };

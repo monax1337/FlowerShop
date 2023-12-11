@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {useIntl} from "react-intl";
 import {AuthContext, LocaleContext} from "../Contexts";
-import {englishColorDictionary, englishNameDictionary} from "../Dictionaries/MyDictionary";
+import {englishNameDictionary} from "../Dictionaries/MyDictionary";
 import MyButton from "./UI/buttons/MyButton";
 
 const BouquetItem = (props) => {
@@ -11,10 +11,6 @@ const BouquetItem = (props) => {
 
     const getEnglishName = (name) => {
         return englishNameDictionary[name];
-    };
-
-    const getEnglishColor = (color) => {
-        return englishColorDictionary[color];
     };
 
     const selectedLanguage = locale === 'ru' ? 'russian' : 'english';
@@ -29,7 +25,7 @@ const BouquetItem = (props) => {
             </div>
             <div className="flower__content">
                 <div className="flower__info">
-                    <strong>{props.bouquet.name} ({props.bouquet.quantity})</strong>
+                    <strong>{props.bouquet.name} ({props.bouquet.amount})</strong>
                     <div>
                         {intl.formatMessage({id: 'priceText'})}: {props.bouquet.price}
                     </div>

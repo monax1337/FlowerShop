@@ -5,7 +5,7 @@ import MySelect from "../selects/MySlect";
 import MyInput from "../inputs/MyInput";
 import cls from "./MyForm.module.css";
 
-const MyBouquetForm = ({quantityChange, priceChange, nameChange, func, bouquet, buttonText}) => {
+const MyBouquetForm = ({amountChange, priceChange, nameChange, func, bouquet, buttonText}) => {
     const intl = useIntl();
     const {locale, setLocale} = useContext(LocaleContext);
 
@@ -45,8 +45,8 @@ const MyBouquetForm = ({quantityChange, priceChange, nameChange, func, bouquet, 
                 ]}
             />
             <MyInput
-                value={bouquet.quantity}
-                onChange={e => quantityChange(e.target.value)}
+                value={bouquet.amount}
+                onChange={e => amountChange(e.target.value)}
                 type="text"
                 placeholder={intl.formatMessage({id: 'quantityPlaceholder'})}
             />

@@ -7,7 +7,6 @@ const BouquetList = ({bouquets, removeBouquetFromList, handleBouquetSelection, c
     const intl = useIntl();
 
     if (!bouquets || !bouquets.length) {
-        console.log(bouquets)
         return (<h1 style={{textAlign: "center"}}>
             {intl.formatMessage({id: 'noBouquetText'})}
         </h1>)
